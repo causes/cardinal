@@ -15,6 +15,7 @@ module Cardinal
                            else
                              'application'
                            end
+      frame.cleaned_function = frame.function.gsub(/\d+/, 'N')
       return frame
     end
   end
@@ -28,6 +29,7 @@ module Cardinal
 
     class Frame < Raven::StacktraceInterface::Frame
       property :context_type, :default => 'framework'
+      property :cleaned_function
     end
   end
 
